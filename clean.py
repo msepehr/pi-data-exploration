@@ -13,14 +13,10 @@ from random import randint
 
 import pandas as pd
 
-path = input("enter the File name with .csv extension")
+path = input("Enter the File name with .csv extension, default : 'data/clean-in.csv'.")
+if path == "":
+    path = "data/clean-in.csv"
 print(path)
-
-
-
-
-
-#path='S4_RelativePression.csv'       #getting file
 
 with open(path,newline='') as f:
     r = csv.reader(f)
@@ -46,9 +42,9 @@ for d in data:
                 sublist.append(date)
                 time=temp[1]
                 lastdigit=time.split(';')
-                time=lastdigit[0]
+                time=lastdigit[0]+":00"
                 sublist.append(time)
-                last=lastdigit[1]
+                last=lastdigit[1] 
             except:
                 sublist=[]
                 continue
@@ -65,7 +61,7 @@ for d in data:
         arr.append(sublist)
     i+=1
 
-with open('processed_file.csv','w') as f:
+with open('data/clean-out.csv','w') as f:
     w = csv.writer(f)
     w.writerow(['date','time','value'])
     w.writerows(arr)

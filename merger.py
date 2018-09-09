@@ -6,9 +6,10 @@ from datetime import datetime
 import time
 import calendar
 
-path = input("enter the DataFile name with .csv extension")
+path = input("Enter the File name with .csv extension, default : 'data/clean-out.csv'.")
+if path == "":
+    path = "data/clean-out.csv"
 print(path)
-
 
 df=pd.read_csv(path)
 
@@ -48,4 +49,4 @@ del df['month']
 del df['year']
 del df['day']
 
-df.to_csv(path, index=False)
+df.to_csv("data/merger-out.csv", index=False)

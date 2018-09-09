@@ -13,7 +13,6 @@ It need to accept and integrate the failure!
 
 ![Process Representation](images/process-representation.png)
 
-
 ## Prerequeries
 
 1. Install [Anaconda](https://www.anaconda.com/download/)
@@ -39,8 +38,8 @@ This script consists of unsupervised decision tree model to classify your time-s
 
 ### Generate some missing data `autofill.py`
 
-Pass a csv file with "**date time value**" format, this script will identify the frequency and then generate the missing rows in a csv file **autofill-output.csv** so that you can fill the values and merge them 
+Pass a csv file with "**date time value**" format, this script will identify the frequency and then generate the missing rows in a csv file **autofill-output.csv** so that you can fill the values and merge them
 
 ### Merge two files together `merger.py`
 
-This script will take two csv file with  <date time value> format and add the filled values in the orignal file on the recquired place
+This script will take two csv file with  "`date time value`" format and add the filled values in the orignal file on the recquired place

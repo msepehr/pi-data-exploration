@@ -6,10 +6,9 @@ from datetime import datetime
 import time
 import calendar
 
-path = input("Enter the File name with .csv extension, default : 'processed_file.csv'.")
+path = input("Enter the File name with .csv extension, default : 'data/clean-out.csv'.")
 if path == "":
-    path = "processed_file.csv"
-
+    path = "data/clean-out.csv"
 print(path)
 
 df=pd.read_csv(path)
@@ -58,7 +57,7 @@ count=0
 
 counter=0
 for index, row in df.iterrows():
-    #print(index)
+    print(index)
     if(index>0):
         w1= df.loc[index].time
         
@@ -78,7 +77,7 @@ for index, row in df.iterrows():
             current_min=current_min+60
 
         if(current_min-prev_min == interval):
-            #print('fine')
+            print('fine')
         else:
             prev_min=prev_min+interval
             prev_min=prev_min % 60
@@ -95,4 +94,5 @@ for index, row in df.iterrows():
 
 newdf = newdf[newdf['value']== -1]
 
-newdf.to_csv('autofill-output.csv', index=False)
+newdf.to_csv('data/autofill-out.csv', index=False)
+print('data/autofill-out.csv')
