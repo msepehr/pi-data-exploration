@@ -13,8 +13,10 @@ print(path)
 
 df=pd.read_csv(path)
 
-add = input("enter the additional datafile name with .csv extension")
-print(path)
+add = input("Enter the additional datafile name with, default : 'data/autofill-out.csv'.")
+if add == "":
+    add = "data/autofill-out.csv"
+print(add)
 
 ad_data=pd.read_csv(add)
 

@@ -6,9 +6,12 @@ from datetime import datetime
 import time
 import calendar
 
-path = input("enter the File name with .csv extension")
-df=pd.read_csv(path)
+path = input("Enter the File name with .csv extension, default : 'data/clean-out.csv'.")
+if path == "":
+    path = "data/clean-out.csv"
+print(path)
 
+df=pd.read_csv(path)
 
 
 stat = pd.DataFrame(columns=['date','hour','percentage'])
@@ -22,9 +25,10 @@ temp=df2.loc[0].time
 hh, mm, ss = temp.split(':')
 correctTime=int(hh) * 3600 + int(mm) * 60 +int(ss)
 temp_hour=int(hh)
+print('temp_hour %s' % (temp))
 index=0
 check=True
-limit=0;
+limit=0
 for index, row in df2.iterrows():
     w1= df.loc[index].time 
     h1, m1, s1 = w1.split(':')
@@ -41,7 +45,7 @@ for index, row in df2.iterrows():
 #date to gather initial date 
 time_str= df.loc[index].date
 
-day, month, year = time_str.split('-')
+day, month, year = time_str.split('/')
 initial_day=int(day)
 currenr_day=int(day)
 initial_date=df.loc[index].date
@@ -60,7 +64,7 @@ counter=0
 
 
 for index, row in df.iterrows():
-    print(index)
+    #print(index)
     
     #checking the current row time
     w1= df.loc[index].time 
@@ -70,7 +74,7 @@ for index, row in df.iterrows():
     
     #checking the current day
     time_str= df.loc[index].date
-    day, month, year = time_str.split('-')
+    day, month, year = time_str.split('/')
     current_day=int(day)
     
     per=(hour_count/limit)*100
@@ -90,4 +94,5 @@ for index, row in df.iterrows():
 
 
 
-stat.to_csv('hourStat.csv', index=False)
+stat.to_csv('data/stats-out.csv', index=False)
+print('data/stats-out.csv')
