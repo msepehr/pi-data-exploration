@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: pidataexploration
+Version: 0.1
+Summary: Data Exploration for PI System (2018)
+Home-page: https://github.com/msepehr/pi-data-exploration
+Author: Mahyar Sepehr
+Author-email: mahyar.sepehr@gmail.com
+License: MIT
+Description:     Data Exploration for PI System (2018)
+            
+Keywords: PI Web API
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Development/Alpha

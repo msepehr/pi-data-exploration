@@ -1,0 +1,5 @@
+six>=1.10
+requests
+requests-kerberos
+pandas>=0.20.3
+setuptools>=21.0.0

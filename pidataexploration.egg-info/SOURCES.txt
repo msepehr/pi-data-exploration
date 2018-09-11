@@ -1,0 +1,6 @@
+setup.py
+pidataexploration.egg-info/PKG-INFO
+pidataexploration.egg-info/SOURCES.txt
+pidataexploration.egg-info/dependency_links.txt
+pidataexploration.egg-info/requires.txt
+pidataexploration.egg-info/top_level.txt

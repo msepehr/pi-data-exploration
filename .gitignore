@@ -1,2 +1,4 @@
 old
-**/.DS_Stor
+/dist/*
+**/.DS_Store
+conf/credentials.yml
