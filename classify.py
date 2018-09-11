@@ -12,7 +12,7 @@ print(path)
 
 df=pd.read_csv(path)
 
-df=df[:-195574]
+#df=df[:-195574]
 
 
 df['status']=0
@@ -29,7 +29,7 @@ print ('threshold  %.2f' % threshold)
 for index, row in df.iterrows():
     if (df.loc[index, 'value'] > threshold).bool() :
         df.loc[index,'status'] = '1'
-        print(index)
+        #print(index)
 
 
 new_df = df[df['status']!= 0]
