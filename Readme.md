@@ -21,6 +21,8 @@ It need to accept and integrate the failure!
 
 1. TODO include [PI-Web-API-Client-Python](https://github.com/osimloeff/PI-Web-API-Client-Python) to get some live data from PI System
 
+1. The conf/credentials.yml has not been pushed for a security reason. Therefore, a conf/credentials.yaml.template is added to copy and rename to conf/credentials.yml with a username/password basic authentication.
+
 ### Dependencies
 
 * PI-Web-API-Client-Python – PI Client for Python 

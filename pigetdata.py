@@ -58,5 +58,5 @@ class GetData():
 
 
 g = GetData()
-g.CreatePIPoint()
+#g.CreatePIPoint()
 print(g.GetDataInBulk())
