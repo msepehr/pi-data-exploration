@@ -11,9 +11,9 @@ class GetData():
     def getCredentials(self):
         conf = yaml.load(open('conf/credentials.yml'))
         url = conf['pi']['url']
-        login = conf['pi']['login']
+        username = conf['pi']['username']
         pwd = conf['pi']['password']
-        return url,login,pwd
+        return url,username,pwd
 
     def getPIWebApiClient(self):
         """
@@ -21,11 +21,12 @@ class GetData():
             Store passwords outside of the code in a hardware TPM, trusted service (credential manager) or in a protected file.
             Code to return the user name and password is not shown here.
         """
-        url, login, password = self.getCredentials()
+        url, username, password = self.getCredentials()
+        print ("url %s, username %s, password %s" % (url, username, password))
         return PIWebApiClient(
                         url, 
                         useKerberos=False, 
-                        username=login, 
+                        username=username, 
                         password=password, 
                         verifySsl=False)
 

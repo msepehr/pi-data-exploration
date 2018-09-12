@@ -12,9 +12,6 @@ print(path)
 
 df=pd.read_csv(path)
 
-#df=df[:-195574]
-
-
 df['status']=0
 
 #computing the mean value for given dataframe

@@ -21,6 +21,13 @@ It need to accept and integrate the failure!
 
 1. TODO include [PI-Web-API-Client-Python](https://github.com/osimloeff/PI-Web-API-Client-Python) to get some live data from PI System
 
+### Dependencies
+
+* PI-Web-API-Client-Python – PI Client for Python 
+* csv - Read CSV files
+* pandas - Work with data structure like missed Data 
+* numpy - perform calculations over Data
+
 ## Data Exploration description
 
 This model consists of several steps/scripts.
