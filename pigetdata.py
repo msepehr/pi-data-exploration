@@ -1,4 +1,5 @@
 import yaml
+import uuid
 from threading import Thread
 from time import sleep, time
 
@@ -22,7 +23,7 @@ class GetData():
             Code to return the user name and password is not shown here.
         """
         url, username, password = self.getCredentials()
-        print ("url %s, username %s, password %s" % (url, username, password))
+        #print ("url %s, username %s, password %s" % (url, username, password))
         return PIWebApiClient(
                         url, 
                         useKerberos=False, 
@@ -33,12 +34,13 @@ class GetData():
     def CreatePIPoint(self):
         client = self.getPIWebApiClient()
         newPoint = PIPoint()
-        newPoint.name  = "S1_PREL"
+
+        newPoint.name  = "S1_PREL_"+str(uuid.uuid4())
         newPoint.descriptor = "Sensor Relative Pression"
         newPoint.point_class = "classic"
         newPoint.point_type = "float32"
         newPoint.future = False
-        dataServer = client.dataServer.get_by_path("\\\\PISRV1")
+        dataServer = client.dataServer.get_by_path("\\\\PISRV1", None, None)
         return client.dataServer.create_point_with_http_info(dataServer.web_id, newPoint)      
 
     def GetDataInBulk(self):
@@ -58,5 +60,5 @@ class GetData():
 
 
 g = GetData()
-#g.CreatePIPoint()
+g.CreatePIPoint()
 print(g.GetDataInBulk())

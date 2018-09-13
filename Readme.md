@@ -17,17 +17,19 @@ It need to accept and integrate the failure!
 
 1. Install [Anaconda](https://www.anaconda.com/download/)
 
-1. conda create --name dataexploration matplotlib pandas
+1. conda create --name dataexploration matplotlib pandas.
 
-1. TODO include [PI-Web-API-Client-Python](https://github.com/osimloeff/PI-Web-API-Client-Python) to get some live data from PI System
+1. An accessible up and running PI System with PI WEB-API.
+
+1. PI WEB-API should be configured for a basic authentication (username/password).
 
 1. The conf/credentials.yml has not been pushed for a security reason. Therefore, a conf/credentials.yaml.template is added to copy and rename to conf/credentials.yml with a username/password basic authentication.
 
 ### Dependencies
 
-* PI-Web-API-Client-Python – PI Client for Python 
+* [PI-Web-API-Client-Python](https://github.com/osimloeff/PI-Web-API-Client-Python)  – PI Client for Python
 * csv - Read CSV files
-* pandas - Work with data structure like missed Data 
+* pandas - Work with data structure like missed Data
 * numpy - perform calculations over Data
 
 ## Data Exploration description
