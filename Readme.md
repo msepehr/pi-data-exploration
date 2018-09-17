@@ -15,9 +15,9 @@ It need to accept and integrate the failure!
 
 ## Prerequeries
 
-1. Install [Anaconda](https://www.anaconda.com/download/)
+1. Install [Anaconda](https://www.anaconda.com/download/) TODO change this to pure python.
 
-1. conda create --name dataexploration matplotlib pandas.
+1. conda create --name dataexploration matplotlib pandas. TODO change this to pure python.
 
 1. An accessible up and running PI System with PI WEB-API.
 
@@ -36,6 +36,11 @@ It need to accept and integrate the failure!
 
 This model consists of several steps/scripts.
 
+### Get the Data from PI System `pigetdata.py`
+
+This script consists on getting the Data from Asset Framework and PI Data Archive.
+In order to make our testing fully independent of every environment and also to make our testing rules easy to prepare, we will previously insert some AFElements and PIPoints with their appropriate Data in order to work with them with our models.
+
 ### Data Preparation `clean.py`
 
 This script cleans and pre process the data from your sensor values,before doing any task you have to format your file from this script.
@@ -49,8 +54,15 @@ This script consists of unsupervised decision tree model to classify your time-s
 
 ### Generate some missing data `autofill.py`
 
-Pass a csv file with "**date time value**" format, this script will identify the frequency and then generate the missing rows in a csv file **autofill-output.csv** so that you can fill the values and merge them
+Pass a csv file with "`date time value`" format, this script will identify the frequency and then generate the missing rows in a csv file **autofill-output.csv** so that you can fill the values and merge them
 
 ### Merge two files together `merger.py`
 
 This script will take two csv file with  "`date time value`" format and add the filled values in the orignal file on the recquired place
+
+### Statistics on data received `stats.py`
+
+This script generates some periodic statistics on the data received. The results are put into csv files.
+Statistics implemented:
+
+* Percentage of received data per hour. Therefore, low threshold and a high treshold is calculated regarding of the data received.

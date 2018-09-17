@@ -34,13 +34,14 @@ class GetData():
     def CreatePIPoint(self):
         client = self.getPIWebApiClient()
         newPoint = PIPoint()
-
         newPoint.name  = "S1_PREL_"+str(uuid.uuid4())
+        #newPoint.name  = "S1_PREL_toto"
         newPoint.descriptor = "Sensor Relative Pression"
         newPoint.point_class = "classic"
         newPoint.point_type = "float32"
         newPoint.future = False
         dataServer = client.dataServer.get_by_path("\\\\PISRV1", None, None)
+        print("dataServer.web_id %s" % dataServer.web_id)
         return client.dataServer.create_point_with_http_info(dataServer.web_id, newPoint)      
 
     def GetDataInBulk(self):
@@ -60,5 +61,17 @@ class GetData():
 
 
 g = GetData()
+
+###################
+# Data Preparation 
+###################
+# Create PIPoint
 g.CreatePIPoint()
+# Insert Data 
+# TODO insert data here
+
+
+###################################
+# Get the Data and push into a file 
+###################################
 print(g.GetDataInBulk())

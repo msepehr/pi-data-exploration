@@ -69,8 +69,10 @@ for index, row in df.iterrows():
 
         current_hour=int(h1)
         prev_hour=int(h2)
+        prev_hour_str=h2
         current_min=int(m1)
         prev_min=int(m2)
+        prev_min_str=m2
 
         if(prev_min>current_min):
             
@@ -82,7 +84,7 @@ for index, row in df.iterrows():
             prev_min=prev_min+interval
             prev_min=prev_min % 60
              
-            strin= str(prev_hour)+ ':'+str(prev_min)+ ':'+'00'        
+            strin= prev_hour_str + ':' + prev_min_str + ':' + '00'        
             newdf.loc[counter,'date'] = df.loc[index,'date'] 
             newdf.loc[counter,'time'] = strin
             newdf.loc[counter,'value'] = -1

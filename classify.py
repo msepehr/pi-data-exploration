@@ -10,21 +10,23 @@ if path == "":
     path = "data/clean-out.csv"
 print(path)
 
-df=pd.read_csv(path)
+df = pd.read_csv(path)
 
-df['status']=0
+df['status'] = 0
 
 #computing the mean value for given dataframe
-std=df[['value']].std()
+std = df[['value']].std()
 print ('std %.2f' % std)
 #computing the mean value for dataframe
-mean=df[['value']].mean()
+mean = df[['value']].mean()
 print ('mean %.2f' % mean)
-threshold=mean+std
-print ('threshold  %.2f' % threshold)
+highThreshold = mean + std
+lowThreshold = mean - std
+print ('highThreshold  %.2f' % highThreshold)
+print ('lowThreshold  %.2f' % lowThreshold)
 
 for index, row in df.iterrows():
-    if (df.loc[index, 'value'] > threshold).bool() :
+    if (df.loc[index, 'value'] > highThreshold).bool() or (df.loc[index, 'value'] < lowThreshold).bool() :
         df.loc[index,'status'] = '1'
         #print(index)
 
